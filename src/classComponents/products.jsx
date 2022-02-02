@@ -18,6 +18,8 @@ class Products extends Component {
         {this.state.products.map((p, index) => {
           return (
             <Product
+              onIncrement={this.hanldleIncrement}
+              onDecrement={this.hanldleDecrement}
               onDelete={this.handleDelete}
               id={p.id}
               key={index}
@@ -38,8 +40,19 @@ class Products extends Component {
       p.count = 0;
       return p;
     });
-    this.setState({ products: newProducts});
+    this.setState({ products: newProducts });
+  };
+  hanldleIncrement = (productId) => {
+    const newProducts = [...this.state.products];
+    const index = newProducts.findIndex((p) => p.id === productId);
+    newProducts[index].count += 1;
+    this.setState({ products: newProducts });
+  };
+  hanldleDecrement = (productId) => {
+    const newProducts = [...this.state.products];
+    const index = newProducts.findIndex((p) => p.id === productId);
+    newProducts[index].count -= 1;
+    this.setState({ products: newProducts });
   };
 }
-
 export default Products;
