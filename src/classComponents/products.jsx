@@ -2,25 +2,18 @@ import React, { Component } from "react";
 // import Product from "./product";
 import Product from "./product";
 class Products extends Component {
-  state = {
-    products: [
-      { id: 1, count: 2, productName: "laptop" },
-      { id: 2, count: 5, productName: "phone" },
-      { id: 3, count: 7, productName: "airpod" },
-    ],
-  };
   render() {
     return (
       <>
-        <button onClick={this.handleReset} className="btn btn-primary">
+        <button onClick={this.props.onReset} className="btn btn-primary">
           reset
         </button>
-        {this.state.products.map((p, index) => {
+        {this.props.products.map((p, index) => {
           return (
             <Product
-              onIncrement={this.hanldleIncrement}
-              onDecrement={this.hanldleDecrement}
-              onDelete={this.handleDelete}
+              onIncrement={this.props.onIncrement}
+              onDecrement={this.props.onDecrement}
+              onDelete={this.props.onDelete}
               id={p.id}
               key={index}
               productName={p.productName}
@@ -31,28 +24,5 @@ class Products extends Component {
       </>
     );
   }
-  handleDelete = (productId) => {
-    const newProducts = this.state.products.filter((p) => p.id !== productId);
-    this.setState({ products: newProducts });
-  };
-  handleReset = () => {
-    const newProducts = this.state.products.map((p) => {
-      p.count = 0;
-      return p;
-    });
-    this.setState({ products: newProducts });
-  };
-  hanldleIncrement = (productId) => {
-    const newProducts = [...this.state.products];
-    const index = newProducts.findIndex((p) => p.id === productId);
-    newProducts[index].count += 1;
-    this.setState({ products: newProducts });
-  };
-  hanldleDecrement = (productId) => {
-    const newProducts = [...this.state.products];
-    const index = newProducts.findIndex((p) => p.id === productId);
-    newProducts[index].count -= 1;
-    this.setState({ products: newProducts });
-  };
 }
 export default Products;
