@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Products from './classComponents/products';
 import Navbar from './navbar/navbar';
+import ProductContext from './context/products';
 class App extends Component {
     state = {
         products: [
@@ -12,14 +13,16 @@ class App extends Component {
     render() {
         return (
             <>
-                <Navbar products={this.state.products} />
-                <Products
+                <ProductContext.Provider
                     products={this.state.products}
                     onDelete={this.handleDelete}
                     onIncrement={this.hanldleIncrement}
                     onDecrement={this.hanldleDecrement}
-                    onReset={this.handleReset}
-                />
+                    onReset={this.handleReset}>
+                    <Navbar />
+                    <Products />
+                </ProductContext.Provider>
+
             </>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 class Product extends Component {
+  static contextType = Pro
   render() {
     const { productName } = this.props;
     return (
@@ -29,13 +30,13 @@ class Product extends Component {
   }
 
   handleIncrease = () => {
-    this.props.onIncrement(this.props.id);
+    this.context.onIncrement(this.props.id);
   };
   handleDecrease = () => {
-    this.props.onDecrement(this.props.id);
+    this.context.onDecrement(this.props.id);
   };
   handleDelete = () => {
-    this.props.onDelete(this.props.id);
+    this.context.onDelete(this.props.id);
   };
   format = () => {
     if (this.props.count === 0) {
