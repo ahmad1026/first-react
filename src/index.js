@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Products from './components/products';
 // import Products from './components/products';
-import App from './app';
+// import App from './app';
+import App from './funcComponents/app';
 
 
 ReactDOM.render(
