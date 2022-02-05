@@ -1,6 +1,6 @@
 import Products from "./products";
 import Navbar from "./navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductsContext from "../context/products";
 
 const App = () => {
@@ -9,6 +9,19 @@ const App = () => {
     { id: 2, count: 5, productName: "phone" },
     { id: 3, count: 7, productName: "airpod" },
   ]);
+
+  useEffect(() => {
+    console.log("mount-update");
+  });//execute in mount  and update component
+  useEffect(() => {
+    console.log("mount-update");
+  });//execute in mount  and update component
+  useEffect(() => {
+    console.log("mount-update");
+  });//execute in mount  and update component
+  useEffect(() => {
+    console.log("mount");
+  },[]);//only execute in mount component
 
   return (
     <>

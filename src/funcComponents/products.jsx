@@ -4,7 +4,6 @@ import Product from "./product";
 
 const Products = (props) => {
   const productContext = useContext(ProductContext);
-  console.log(productContext);
   return (
     <>
       <button onClick={productContext.onReset} className="btn btn-primary">
