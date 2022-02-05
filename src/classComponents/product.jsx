@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import ProductContext from "../context/products";
 class Product extends Component {
-  static contextType = Pro
+  static contextType = ProductContext;
   render() {
     const { productName } = this.props;
     return (

@@ -14,11 +14,14 @@ class App extends Component {
         return (
             <>
                 <ProductContext.Provider
-                    products={this.state.products}
-                    onDelete={this.handleDelete}
-                    onIncrement={this.hanldleIncrement}
-                    onDecrement={this.hanldleDecrement}
-                    onReset={this.handleReset}>
+                    value={{
+                        products: this.state.products,
+                        onDelete: this.handleDelete,
+                        onIncrement: this.hanldleIncrement,
+                        onDecrement: this.hanldleDecrement,
+                        onReset: this.handleReset,
+                    }}
+                >
                     <Navbar />
                     <Products />
                 </ProductContext.Provider>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ProductContext from "../context/products";
-// import Product from "./product";
 import Product from "./product";
 class Products extends Component {
   static contextType = ProductContext;
