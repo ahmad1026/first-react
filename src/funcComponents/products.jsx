@@ -1,9 +1,18 @@
-import { useContext } from "react";
+import { useContext , useEffect } from "react";
 import ProductContext from "../context/products";
 import Product from "./product";
 
 const Products = (props) => {
   const productContext = useContext(ProductContext);
+  useEffect(()=>{
+    return ()=>{
+      console.log("product unmount");
+    }//product unmount live cycle
+
+  });
+
+
+
   return (
     <>
       <button onClick={productContext.onReset} className="btn btn-primary">
